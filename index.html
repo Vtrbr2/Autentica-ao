@@ -200,6 +200,36 @@
 .faq-item {
   background-color: transparent !important;
 } 
+        /* --- AJUSTE DO FAQ --- */
+.faq-container {
+  background-color: transparent !important; /* remove o fundo cinza */
+  backdrop-filter: none !important;
+}
+
+.faq-item {
+  background-color: transparent !important; /* cada pergunta sem fundo */
+}
+
+.faq-question {
+  @apply flex justify-between items-center w-full py-5 text-left transition-colors duration-300;
+}
+
+.faq-question:hover {
+  @apply text-roxo-principal; /* muda a cor da pergunta ao passar o mouse */
+}
+
+.faq-answer {
+  @apply text-texto-cinza leading-relaxed mt-2;
+}
+
+/* Ícone com animação de rotação */
+.faq-question i {
+  @apply transition-transform duration-300 text-roxo-principal;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
     </style>
 </head>
 
