@@ -1,66 +1,262 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Página de loguin | AsmrProg</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login</title>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+  <style>
+    :root{
+      --h-purple: #673DE6; /* Hostinger primary */
+      --h-purple-2: #674CC4; /* variação */
+      --h-purple-3: #673EE5; /* variação */
+      --bg: #0f1020;
+      --card: #141326;
+      --text: #EDECFB;
+      --muted: #B6B3E6;
+      --error: #FF6B6B;
+      --success: #30D158;
+      --radius: 12px;
+      --shadow: 0 10px 30px rgba(103,61,230,0.25);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 800px at 80% -10%, rgba(103,61,230,0.25), transparent 60%),
+        radial-gradient(1000px 600px at -10% 110%, rgba(103,76,196,0.25), transparent 60%),
+        linear-gradient(180deg, #0b0c1a 0%, #0f1020 100%);
+      min-height:100%;
+      display:grid;
+      place-items:center;
+      padding: 24px;
+    }
+    .card{
+      width:100%;
+      max-width: 420px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01)) , var(--card);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      backdrop-filter: blur(6px);
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;margin-bottom:12px;
+    }
+    .logo{
+      width:36px;height:36px;border-radius:8px;
+      background: conic-gradient(from 180deg at 50% 50%, var(--h-purple), var(--h-purple-2), var(--h-purple-3), var(--h-purple));
+      box-shadow: 0 6px 18px rgba(103,61,230,0.45);
+    }
+    h1{font-size:22px;margin:0}
+    p.sub{color:var(--muted);margin:6px 0 18px 0;font-size:14px}
+    form{display:grid;gap:14px}
+    label{font-size:13px;color:var(--muted)}
+    .input{
+      margin-top:6px;
+      background:#0d0e1a;
+      color:var(--text);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:10px;
+      padding:12px 14px;
+      outline:none;
+      width:100%;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .input:focus{
+      border-color: var(--h-purple);
+      box-shadow: 0 0 0 3px rgba(103,61,230,0.25);
+    }
+    .actions{display:grid;gap:10px;margin-top:6px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      padding:12px 14px;border-radius:10px;border:0;cursor:pointer;
+      color:white;font-weight:600;
+      background: linear-gradient(135deg, var(--h-purple), var(--h-purple-2));
+      transition: transform .06s ease, box-shadow .2s ease, filter .2s ease;
+      box-shadow: 0 10px 22px rgba(103,61,230,0.35);
+    }
+    .btn:hover{filter: brightness(1.05)}
+    .btn:active{transform: translateY(1px)}
+    .btn-secondary{
+      background: transparent;color:var(--text);
+      border:1px solid rgba(255,255,255,0.12);
+      box-shadow:none;
+    }
+    .helper{display:flex;justify-content:space-between;align-items:center}
+    .link{color:#b9a8ff;text-decoration:none;font-size:13px}
+    .msg{font-size:13px;margin-top:4px;min-height:18px}
+    .msg.error{color: var(--error)}
+    .msg.success{color: var(--success)}
+    .sep{
+      display:flex;align-items:center;gap:12px;margin:6px 0;
+      color:var(--muted);font-size:12px
+    }
+    .sep:before,.sep:after{content:"";height:1px;flex:1;background:rgba(255,255,255,0.12)}
+    .oauth{
+      display:grid; gap:10px; grid-template-columns: 1fr;
+    }
+    .small{font-size:12px;color:var(--muted);text-align:center;margin-top:12px}
+  </style>
 </head>
-
 <body>
-
-    <div class="container" id="container">
-        <div class="form-container sign-up">
-            <form>
-                <h1>Criar Conta</h1>
-                <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-                <span>ou use seu email para registrar</span>
-                <input type="text" placeholder="Nome">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Senha">
-                <button>logar-se</button>
-            </form>
-        </div>
-        <div class="form-container sign-in">
-            <form>
-                <h1>Sign In</h1>
-                <div class="social-icons">
-                    <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-github"></i></a>
-                    <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                </div>
-                <span>or use your email password</span>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <a href="#">Forget Your Password?</a>
-                <button>Sign In</button>
-            </form>
-        </div>
-        <div class="toggle-container">
-            <div class="toggle">
-                <div class="toggle-panel toggle-left">
-                    <h1>Welcome Back!</h1>
-                    <p>Enter your personal details to use all of site features</p>
-                    <button class="hidden" id="login">Sign In</button>
-                </div>
-                <div class="toggle-panel toggle-right">
-                    <h1>Hello, Friend!</h1>
-                    <p>Register with your personal details to use all of site features</p>
-                    <button class="hidden" id="register">Sign Up</button>
-                </div>
-            </div>
-        </div>
+  <div class="card" role="main" aria-labelledby="login-title">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <div>
+        <h1 id="login-title">Entrar na sua conta</h1>
+        <p class="sub">Acesse a área interna do site</p>
+      </div>
     </div>
 
-    <script src="script.js"></script>
-</body>
+    <form id="login-form" novalidate>
+      <div>
+        <label for="email">Email</label>
+        <input id="email" class="input" name="email" type="email" placeholder="voce@exemplo.com" autocomplete="email" required />
+      </div>
+      <div>
+        <label for="password">Senha</label>
+        <input id="password" class="input" name="password" type="password" placeholder="Sua senha" autocomplete="current-password" required />
+      </div>
 
-</html>
+      <div class="helper">
+        <span class="msg" id="status"></span>
+        <a class="link" id="forgot" href="#">Esqueci a senha</a>
+      </div>
+
+      <div class="actions">
+        <button type="submit" class="btn" id="btn-login">Entrar</button>
+        <button type="button" class="btn btn-secondary" id="btn-signup">Criar conta</button>
+      </div>
+
+      <div class="sep">ou</div>
+
+      <div class="oauth">
+        <button type="button" class="btn" id="btn-google">
+          <span aria-hidden="true">🔐</span> Entrar com Google
+        </button>
+      </div>
+
+      <p class="small">Ao continuar, você concorda com os termos do serviço.</p>
+    </form>
+  </div>
+
+  <!-- Supabase JS -->
+  <script type="module">
+    import { createClient } from "https://esm.sh/@supabase/supabase-js@2"
+
+    // TODO: troque pelas suas credenciais do projeto
+    const supabaseUrl = "https://SEU-PROJETO.supabase.co"
+    const supabaseAnonKey = "SEU-ANON-KEY"
+    const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+    const form = document.getElementById("login-form")
+    const emailEl = document.getElementById("email")
+    const passEl = document.getElementById("password")
+    const statusEl = document.getElementById("status")
+    const btnLogin = document.getElementById("btn-login")
+    const btnSignup = document.getElementById("btn-signup")
+    const btnGoogle = document.getElementById("btn-google")
+    const forgot = document.getElementById("forgot")
+
+    const AREA_INTERNA = "/area-interna"
+    const LOGIN_PAGE = window.location.pathname
+
+    function setStatus(msg, kind = "") {
+      statusEl.textContent = msg
+      statusEl.className = "msg" + (kind ? " " + kind : "")
+    }
+
+    async function checkSessionAndRedirect() {
+      const { data: { session } } = await supabase.auth.getSession()
+      if (session) {
+        window.location.replace(AREA_INTERNA)
+      }
+    }
+
+    // Verifica sessão ao carregar
+    document.addEventListener("DOMContentLoaded", () => {
+      checkSessionAndRedirect()
+      supabase.auth.onAuthStateChange((_ev, session) => {
+        if (session) window.location.replace(AREA_INTERNA)
+      })
+    })
+
+    // Login email/senha
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault()
+      setStatus("Entrando...")
+      btnLogin.disabled = true
+      try {
+        const email = emailEl.value.trim()
+        const password = passEl.value
+        const { error } = await supabase.auth.signInWithPassword({ email, password })
+        if (error) {
+          setStatus(error.message || "Erro ao entrar", "error")
+          btnLogin.disabled = false
+          return
+        }
+        setStatus("Login realizado. Redirecionando...", "success")
+        // onAuthStateChange também redireciona; este é um fallback:
+        window.location.replace(AREA_INTERNA)
+      } catch (err) {
+        setStatus("Falha inesperada no login", "error")
+        btnLogin.disabled = false
+      }
+    })
+
+    // Registro email/senha
+    btnSignup.addEventListener("click", async () => {
+      setStatus("Criando conta...")
+      btnSignup.disabled = true
+      try {
+        const email = emailEl.value.trim()
+        const password = passEl.value
+        const { error } = await supabase.auth.signUp({ email, password })
+        if (error) {
+          setStatus(error.message || "Erro ao criar conta", "error")
+          btnSignup.disabled = false
+          return
+        }
+        setStatus("Verifique seu email para confirmar o cadastro", "success")
+        btnSignup.disabled = false
+      } catch (err) {
+        setStatus("Falha inesperada no cadastro", "error")
+        btnSignup.disabled = false
+      }
+    })
+
+    // OAuth Google com redirect
+    btnGoogle.addEventListener("click", async () => {
+      setStatus("Redirecionando para o Google...")
+      const redirectTo = `${window.location.origin}/auth/callback`
+      await supabase.auth.signInWithOAuth({
+        provider: "google",
+        options: { redirectTo }
+      })
+    })
+
+    // Esqueci a senha
+    forgot.addEventListener("click", async (e) => {
+      e.preventDefault()
+      const email = emailEl.value.trim()
+      if (!email) {
+        setStatus("Digite seu email para recuperar a senha", "error")
+        return
+      }
+      setStatus("Enviando link de recuperação...")
+      const redirectTo = `${window.location.origin}/auth/reset`
+      const { error } = await supabase.auth.resetPasswordForEmail(email, { redirectTo })
+      if (error) {
+        setStatus(error.message || "Não foi possível enviar o link", "error")
+        return
+      }
+      setStatus("Verifique seu email para redefinir a senha", "success")
+    })
+  </script>
+</body>
+    </html>
