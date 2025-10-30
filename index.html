@@ -1,220 +1,312 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WF Sites - Sites Personalizados com Domínio Próprio</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/navbar.css" />
-  <link rel="stylesheet" href="css/hero.css" />
-  <link rel="stylesheet" href="css/carousel.css" />
-  <link rel="stylesheet" href="css/sections.css" />
-  <link rel="stylesheet" href="css/footer.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WF Sites - Sites Personalizados para Empreendedores</title>
+    <meta name="description" content="Crie sites personalizados com domínio próprio. Rápido, profissional e sob medida para seu negócio.">
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="script.js" defer></script>
 </head>
 <body>
 
-  <!-- Promo Bar -->
-  <div class="promo-bar">
-    <p>20% de desconto no 1º projeto. <a href="#templates" class="promo-link">Saiba mais</a></p>
-  </div>
-
-  <!-- Navbar -->
-  <nav class="wf-navbar" aria-label="Navegação principal">
-    <a href="#" class="logo" aria-label="Voltar ao topo">WF</a>
-    <button class="wf-hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div class="wf-menu" id="mobile-menu">
-      <button class="wf-login">Logar</button>
-    </div>
-  </nav>
-
-  <!-- Hero -->
-  <section class="wf-hero wf-section">
-    <h1>Crie sites personalizados com domínio próprio — rápido, profissional e sob medida.</h1>
-    <p>Branding forte, SEO otimizado e domínio incluso ou integrado em minutos.</p>
-    <div class="cta-group">
-      <button class="btn-primary" onclick="scrollToSection('templates')">Ver Templates</button>
-      <button class="btn-secondary">Solicitar Orçamento</button>
-    </div>
-  </section>
-
-  <!-- Logo Carousel -->
-  <section class="logo-carousel wf-section">
-    <div class="carousel-container">
-      <button class="carousel-btn prev" aria-label="Anterior">❮</button>
-      <div class="carousel-track-container">
-        <div class="carousel-track" id="logoTrack">
-          <img src="assets/logos/logo1.png" alt="Empresa parceira 1" loading="lazy">
-          <img src="assets/logos/logo2.png" alt="Empresa parceira 2" loading="lazy">
-          <img src="assets/logos/logo3.png" alt="Empresa parceira 3" loading="lazy">
-          <img src="assets/logos/logo4.png" alt="Empresa parceira 4" loading="lazy">
-          <img src="assets/logos/logo5.png" alt="Empresa parceira 5" loading="lazy">
-          <img src="assets/logos/logo1.png" alt="Empresa parceira 1" loading="lazy">
-          <img src="assets/logos/logo2.png" alt="Empresa parceira 2" loading="lazy">
+    <div class="promo-bar" role="banner">
+        <div class="container">
+            <p>
+                <strong>OFERTA:</strong> 20% de desconto no seu 1º projeto. 
+                <a href="#templates">Saiba mais</a>
+            </p>
         </div>
-      </div>
-      <button class="carousel-btn next" aria-label="Próximo">❯</button>
     </div>
-  </section>
 
-  <!-- Benefícios -->
-  <section id="benefits" class="wf-section container">
-    <h2>Por que escolher a WF?</h2>
-    <div class="grid-3">
-      <div class="card">
-        <h3>Design Sob Medida</h3>
-        <p>Sites únicos que refletem sua marca com perfeição.</p>
-      </div>
-      <div class="card">
-        <h3>Domínio Incluso</h3>
-        <p>Compre ou conecte seu domínio em 1 clique.</p>
-      </div>
-      <div class="card">
-        <h3>Entrega em 48h</h3>
-        <p>Site no ar rápido, sem complicação.</p>
-      </div>
-    </div>
-  </section>
+    <nav class="navbar" aria-label="Navegação principal">
+        <div class="container navbar-container">
+            <a href="#home" class="navbar-logo" aria-label="WF Sites - Início">WF</a>
+            
+            <button class="navbar-hamburger" id="hamburger-btn" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav-links">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
 
-  <!-- Templates -->
-  <section id="templates" class="wf-section container">
-    <h2>Templates Prontos para Personalizar</h2>
-    <div class="grid-3">
-      <div class="template-card">
-        <div class="placeholder-img">Loja Virtual</div>
-        <h4>E-commerce</h4>
-        <p>Perfeito para vendas online com carrinho e checkout.</p>
-      </div>
-      <div class="template-card">
-        <div class="placeholder-img">Serviços</div>
-        <h4>Prestadores de Serviço</h4>
-        <p>Agendamento, portfólio e contato integrado.</p>
-      </div>
-      <div class="template-card">
-        <div class="placeholder-img">Empresa</div>
-        <h4>Site Institucional</h4>
-        <p>Apresente sua empresa com profissionalismo.</p>
-      </div>
-    </div>
-  </section>
+            <div class="navbar-links" id="nav-links" role="menubar">
+                <ul class="nav-list">
+                    <li><a href="#beneficios" class="nav-link" role="menuitem">Vantagens</a></li>
+                    <li><a href="#templates" class="nav-link" role="menuitem">Templates</a></li>
+                    <li><a href="#processo" class="nav-link" role="menuitem">Processo</a></li>
+                    <li><a href="#faq" class="nav-link" role="menuitem">FAQ</a></li>
+                    <li><a href="#contato" class="nav-link" role="menuitem">Contato</a></li>
+                </ul>
+                <a href="#" class="btn btn-secondary btn-login" role="menuitem">Logar</a>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Domínio -->
-  <section id="domain" class="wf-section container bg-light">
-    <h2>Domínio Personalizado Incluso ou Integrado</h2>
-    <p>Escolha um domínio grátis no 1º ano (.com, .br, etc) ou conecte o seu existente.</p>
-    <ul class="check-list">
-      <li>Registro fácil e rápido</li>
-      <li>Renovação automática</li>
-      <li>SSL grátis incluso</li>
-      <li>Suporte 24h</li>
-    </ul>
-  </section>
+    <main id="main-content">
 
-  <!-- Processo -->
-  <section id="process" class="wf-section container">
-    <h2>Como Funciona</h2>
-    <div class="process-steps">
-      <div class="step">
-        <span class="step-number">1</span>
-        <h4>Escolha o template</h4>
-      </div>
-      <div class="step">
-        <span class="step-number">2</span>
-        <h4>Preencha o briefing</h4>
-      </div>
-      <div class="step">
-        <span class="step-number">3</span>
-        <h4>Receba em 48h</h4>
-      </div>
-    </div>
-  </section>
+        <header class="hero" id="home" role="banner">
+            <div class="container hero-container animate-on-scroll">
+                <h1 class="hero-headline">Crie sites personalizados com domínio próprio — rápido, profissional e sob medida.</h1>
+                <p class="hero-subheadline">Destaque sua marca, conquiste mais clientes e gerencie seu próprio espaço na web sem complicações.</p>
+                <div class="hero-cta-group">
+                    <a href="#templates" class="btn btn-primary btn-lg">Ver Templates</a>
+                    <a href="#contato" class="btn btn-secondary btn-lg">Solicitar Orçamento</a>
+                </div>
+            </div>
+        </header>
 
-  <!-- Depoimentos -->
-  <section id="testimonials" class="wf-section container">
-    <h2>O que nossos clientes dizem</h2>
-    <div class="testimonials-grid">
-      <blockquote>
-        <p>"Entrega rápida e site lindo. Meu domínio já estava no ar no mesmo dia!"</p>
-        <cite>— Ana, Loja Bella Flor</cite>
-      </blockquote>
-      <blockquote>
-        <p>"Profissionalismo do início ao fim. Recomendo!"</p>
-        <cite>— Marcos, Consultoria MC</cite>
-      </blockquote>
-    </div>
-  </section>
+        <section class="logo-carousel-section" aria-labelledby="carousel-title">
+            <div class="container">
+                <h2 id="carousel-title" class="sr-only">Empresas que confiam na WF Sites</h2>
+                <div class="carousel-viewport" id="logo-carousel">
+                    <div class="carousel-track">
+                        <img src="https://via.placeholder.com/150x50/cccccc/888888?text=EMPRESA+1" alt="Logo Empresa 1" loading="lazy">
+                        <img src="https://via.placeholder.com/150x50/cccccc/888888?text=EMPRESA+2" alt="Logo Empresa 2" loading="lazy">
+                        <img src="https://via.placeholder.com/150x50/cccccc/888888?text=EMPRESA+3" alt="Logo Empresa 3" loading="lazy">
+                        <img src="https://via.placeholder.com/150x50/cccccc/888888?text=EMPRESA+4" alt="Logo Empresa 4" loading="lazy">
+                        <img src="https://via.placeholder.com/150x50/cccccc/888888?text=EMPRESA+5" alt="Logo Empresa 5" loading="lazy">
+                        <img src="https://via.placeholder.com/150x50/cccccc/888888?text=EMPRESA+6" alt="Logo Empresa 6" loading="lazy">
+                        <img src="https://via.placeholder.com/150x50/cccccc/888888?text=EMPRESA+1" alt="Logo Empresa 1" loading="lazy" aria-hidden="true">
+                        <img src="https://via.placeholder.com/150x50/cccccc/888888?text=EMPRESA+2" alt="Logo Empresa 2" loading="lazy" aria-hidden="true">
+                        <img src="https://via.placeholder.com/150x50/cccccc/888888?text=EMPRESA+3" alt="Logo Empresa 3" loading="lazy" aria-hidden="true">
+                        <img src="https://via.placeholder.com/150x50/cccccc/888888?text=EMPRESA+4" alt="Logo Empresa 4" loading="lazy" aria-hidden="true">
+                        <img src="https://via.placeholder.com/150x50/cccccc/888888?text=EMPRESA+5" alt="Logo Empresa 5" loading="lazy" aria-hidden="true">
+                        <img src="https://via.placeholder.com/150x50/cccccc/888888?text=EMPRESA+6" alt="Logo Empresa 6" loading="lazy" aria-hidden="true">
+                    </div>
+                </div>
+                <div class="carousel-controls" style="display: none;"> <button id="carousel-prev" aria-label="Anterior">‹</button>
+                    <button id="carousel-next" aria-label="Próximo">›</button>
+                </div>
+            </div>
+        </section>
 
-  <!-- FAQ -->
-  <section id="faq" class="wf-section container bg-light">
-    <h2>Perguntas Frequentes</h2>
-    <details>
-      <summary>O domínio é realmente grátis?</summary>
-      <p>Sim! No primeiro ano, incluso em todos os planos.</p>
-    </details>
-    <details>
-      <summary>Posso usar meu domínio atual?</summary>
-      <p>Claro! Basta apontar os DNS ou conectar via painel.</p>
-    </details>
-    <details>
-      <summary>Quanto tempo leva para o site ficar pronto?</summary>
-      <p>Até 48h úteis após aprovação do briefing.</p>
-    </details>
-  </section>
+        <section id="beneficios" class="section">
+            <div class="container">
+                <h2 class="section-title text-center">Por que escolher a WF Sites?</h2>
+                <div class="grid-3">
+                    <div class="card animate-on-scroll">
+                        <h3 class="card-title">Domínio Próprio</h3>
+                        <p>Garanta sua identidade profissional. Integramos seu domínio existente ou registramos um novo para você.</p>
+                    </div>
+                    <div class="card animate-on-scroll" style="--animation-delay: 150ms;">
+                        <h3 class="card-title">Design Sob Medida</h3>
+                        <p>Templates 100% personalizáveis que refletem a alma do seu negócio, otimizados para SEO e dispositivos móveis.</p>
+                    </div>
+                    <div class="card animate-on-scroll" style="--animation-delay: 300ms;">
+                        <h3 class="card-title">Entrega Rápida</h3>
+                        <p>Nosso processo é ágil. Colocamos seu site profissional no ar em tempo recorde, pronto para atrair clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Contato -->
-  <section id="contact" class="wf-section container">
-    <h2>Solicite seu Orçamento</h2>
-    <form class="contact-form">
-      <input type="text" placeholder="Nome" required aria-label="Nome" />
-      <input type="email" placeholder="E-mail" required aria-label="E-mail" />
-      <input type="tel" placeholder="Telefone" aria-label="Telefone" />
-      <textarea placeholder="Fale sobre seu projeto" rows="4" aria-label="Mensagem"></textarea>
-      <button type="submit" class="btn-primary">Enviar</button>
-    </form>
-  </section>
+        <section id="templates" class="section bg-gray">
+            <div class="container">
+                <h2 class="section-title text-center">Templates Prontos para Decolar</h2>
+                <p class="section-subtitle text-center">Comece com uma base profissional. Aqui está a oferta de 20% OFF!</p>
+                <div class="grid-3">
+                    <div class="card template-card animate-on-scroll">
+                        <img src="https://via.placeholder.com/400x300/0a4e99/ffffff?text=Template+E-commerce" alt="Exemplo de template para e-commerce" class="template-img" loading="lazy">
+                        <h3 class="card-title">Loja Virtual</h3>
+                        <p>Perfeito para lojistas que precisam de integração com pagamentos e gestão de produtos.</p>
+                    </div>
+                    <div class="card template-card animate-on-scroll" style="--animation-delay: 150ms;">
+                        <img src="https://via.placeholder.com/400x300/0a6/ffffff?text=Template+Portfólio" alt="Exemplo de template para portfólio" class="template-img" loading="lazy">
+                        <h3 class="card-title">Portfólio Criativo</h3>
+                        <p>Ideal para freelancers, fotógrafos e designers mostrarem seus melhores trabalhos.</p>
+                    </div>
+                    <div class="card template-card animate-on-scroll" style="--animation-delay: 300ms;">
+                        <img src="https://via.placeholder.com/400x300/555/ffffff?text=Site+Institucional" alt="Exemplo de template para site institucional" class="template-img" loading="lazy">
+                        <h3 class="card-title">Institucional</h3>
+                        <p>Para pequenas empresas e startups que precisam de uma presença online sólida e confiável.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Footer -->
-  <footer class="wf-footer">
-    <div class="container footer-grid">
-      <div>
-        <h4>WF Sites</h4>
-        <p>Sites sob medida com domínio próprio.</p>
-      </div>
-      <div>
-        <h4>Links</h4>
-        <ul>
-          <li><a href="#templates">Templates</a></li>
-          <li><a href="#domain">Domínio</a></li>
-          <li><a href="#faq">FAQ</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="#">Política de Privacidade</a></li>
-          <li><a href="#">Termos de Uso</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Newsletter</h4>
-        <form>
-          <input type="email" placeholder="Seu e-mail" />
-          <button class="btn-small">Inscrever</button>
-        </form>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2025 WF Sites. Todos os direitos reservados.</p>
-      <div class="social">
-        <a href="#" aria-label="Instagram">📸</a>
-        <a href="#" aria-label="LinkedIn">💼</a>
-        <a href="#" aria-label="WhatsApp">💬</a>
-      </div>
-    </div>
-  </footer>
+        <section id="dominio" class="section">
+            <div class="container grid-2-col-feature">
+                <div class="feature-text animate-on-scroll">
+                    <h2 class="section-title">Sua Marca, Seu Domínio.</h2>
+                    <p>Um domínio personalizado (seusite.com) é o primeiro passo para o profissionalismo. Na WF Sites, cuidamos de tudo para você:</p>
+                    <ul>
+                        <li>Registro de novos domínios (.com, .com.br, e mais).</li>
+                        <li>Configuração e integração do seu domínio existente.</li>
+                        <li>Contas de e-mail profissionais (ex: contato@seusite.com).</li>
+                    </ul>
+                    <a href="#contato" class="btn btn-primary">Registrar meu domínio</a>
+                </div>
+                <div class="feature-image animate-on-scroll" style="--animation-delay: 150ms;">
+                    <img src="https://via.placeholder.com/500x400/0a4e99/ffffff?text=Domínio+Personalizado" alt="Ilustração de um navegador com um domínio personalizado" loading="lazy">
+                </div>
+            </div>
+        </section>
 
-  <script src="js/utilities.js"></script>
-  <script src="js/main.js"></script>
+        <section id="processo" class="section bg-gray">
+            <div class="container">
+                <h2 class="section-title text-center">Nosso Processo em 3 Passos</h2>
+                <div class="steps-container">
+                    <div class="step-card animate-on-scroll">
+                        <div class="step-number">1</div>
+                        <h3 class="card-title">Briefing e Escolha</h3>
+                        <p>Você nos conta sua necessidade e escolhe o ponto de partida (template ou do zero).</p>
+                    </div>
+                    <div class="step-card animate-on-scroll" style="--animation-delay: 150ms;">
+                        <div class="step-number">2</div>
+                        <h3 class="card-title">Personalização</h3>
+                        <p>Ajustamos cores, fontes, imagens e seções para que o site tenha a cara da sua marca.</p>
+                    </div>
+                    <div class="step-card animate-on-scroll" style="--animation-delay: 300ms;">
+                        <div class="step-number">3</div>
+                        <h3 class="card-title">Lançamento</h3>
+                        <p>Revisamos, configuramos seu domínio e publicamos seu novo site. Rápido e sem dor de cabeça.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="depoimentos" class="section">
+            <div class="container">
+                <h2 class="section-title text-center">O que nossos clientes dizem</h2>
+                <div class="grid-2">
+                    <blockquote class="testimonial-card animate-on-scroll">
+                        <p>"A WF Sites entregou meu e-commerce em 5 dias. O design ficou profissional e o suporte para configurar o domínio foi essencial. Recomendo!"</p>
+                        <footer>
+                            <strong>Ana Clara</strong>
+                            <cite>Lojista, Doce Encanto</cite>
+                        </footer>
+                    </blockquote>
+                    <blockquote class="testimonial-card animate-on-scroll" style="--animation-delay: 150ms;">
+                        <p>"Finalmente tenho um portfólio que me representa. O site é rápido, fácil de atualizar e funciona perfeitamente no celular."</p>
+                        <footer>
+                            <strong>Bruno Costa</strong>
+                            <cite>Empreendedor Digital</cite>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="section bg-gray">
+            <div class="container faq-container">
+                <h2 class="section-title text-center">Dúvidas Frequentes</h2>
+                <div class="faq-list">
+                    <details class="faq-item animate-on-scroll">
+                        <summary class="faq-question">Eu preciso já ter um domínio?</summary>
+                        <p class="faq-answer">Não. Nós podemos registrar um domínio novo para você (.com, .com.br, etc.) como parte do pacote. Se você já tiver um, nós fazemos a integração gratuitamente.</p>
+                    </details>
+                    <details class="faq-item animate-on-scroll">
+                        <summary class="faq-question">O site é realmente personalizado?</summary>
+                        <p class="faq-answer">Sim. Mesmo partindo de templates, nós personalizamos 100% do design (cores, fontes, logos, imagens) para que o site seja único e alinhado à sua marca.</p>
+                    </details>
+                    <details class="faq-item animate-on-scroll">
+                        <summary class="faq-question">Vou conseguir atualizar o site sozinho?</summary>
+                        <p class="faq-answer">Sim. Entregamos o site com um painel de gerenciamento (CMS) opcional que permite a você atualizar textos, imagens e produtos sem precisar de código.</p>
+                    </details>
+                    <details class="faq-item animate-on-scroll">
+                        <summary class="faq-question">Em quanto tempo meu site fica pronto?</summary>
+                        <p class="faq-answer">Para sites baseados em templates, a entrega média é de 5 a 7 dias úteis após o recebimento de todo o material (textos e imagens) da sua parte.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" class="section">
+            <div class="container">
+                <h2 class="section-title text-center">Vamos construir seu projeto?</h2>
+                <p class="section-subtitle text-center">Preencha o formulário e solicite um orçamento sem compromisso.</p>
+                
+                <form id="contact-form" class="contact-form animate-on-scroll" novalidate>
+                    <div class="form-control">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" required>
+                        <span class="error-message" aria-live="polite"></span>
+                    </div>
+                    
+                    <div class="form-control">
+                        <label for="email">Seu melhor e-mail</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message" aria-live="polite"></span>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="service-type">Tipo de Site</label>
+                        <select id="service-type" name="service-type" required>
+                            <option value="">Selecione o que precisa...</option>
+                            <option value="institucional">Site Institucional</option>
+                            <option value="ecommerce">Loja Virtual (E-commerce)</option>
+                            <option value="portfolio">Portfólio</option>
+                            <option value="landing-page">Landing Page</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                        <span class="error-message" aria-live="polite"></span>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="message">Fale mais sobre seu projeto</label>
+                        <textarea id="message" name="message" rows="5" required minlength="10"></textarea>
+                        <span class="error-message" aria-live="polite"></span>
+                    </div>
+
+                    <div class="form-control">
+                        <input type="checkbox" id="domain-check" name="domain-check">
+                        <label for="domain-check" class="checkbox-label">Eu já tenho um domínio</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg btn-submit">Solicitar Orçamento Agora</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <a href="#home" class="footer-logo">WF Sites</a>
+                <p>Construindo a presença digital de empreendedores e pequenas empresas.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="WF Sites no Instagram"><img src="https://via.placeholder.com/32/ffffff/0a4e99?text=IN" alt="Instagram"></a>
+                    <a href="#" aria-label="WF Sites no LinkedIn"><img src="https://via.placeholder.com/32/ffffff/0a4e99?text=LI" alt="LinkedIn"></a>
+                    <a href="#" aria-label="WF Sites no Facebook"><img src="https://via.placeholder.com/32/ffffff/0a4e99?text=FB" alt="Facebook"></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-col-title">Empresa</h4>
+                <ul>
+                    <li><a href="#">Sobre Nós</a></li>
+                    <li><a href="#processo">Como Funciona</a></li>
+                    <li><a href="#templates">Portfólio</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4 class="footer-col-title">Links Úteis</h4>
+                <ul>
+                    <li><a href="#contato">Solicitar Orçamento</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#">Suporte</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4 class="footer-col-title">Legal</h4>
+                <ul>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                </ul>
+            </div>
+
+            </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 WF Sites. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
 </body>
-  </html>
+</html>
