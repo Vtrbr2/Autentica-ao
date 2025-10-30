@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WF Sites - Sites Personalizados com Domínio Próprio</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/carousel.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+</head>
+<body>
+
+  <!-- Promo Bar -->
+  <div class="promo-bar">
+    <p>20% de desconto no 1º projeto. <a href="#templates" class="promo-link">Saiba mais</a></p>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="wf-navbar" aria-label="Navegação principal">
+    <a href="#" class="logo" aria-label="Voltar ao topo">WF</a>
+    <button class="wf-hamburger" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="wf-menu" id="mobile-menu">
+      <button class="wf-login">Logar</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="wf-hero wf-section">
+    <h1>Crie sites personalizados com domínio próprio — rápido, profissional e sob medida.</h1>
+    <p>Branding forte, SEO otimizado e domínio incluso ou integrado em minutos.</p>
+    <div class="cta-group">
+      <button class="btn-primary" onclick="scrollToSection('templates')">Ver Templates</button>
+      <button class="btn-secondary">Solicitar Orçamento</button>
+    </div>
+  </section>
+
+  <!-- Logo Carousel -->
+  <section class="logo-carousel wf-section">
+    <div class="carousel-container">
+      <button class="carousel-btn prev" aria-label="Anterior">❮</button>
+      <div class="carousel-track-container">
+        <div class="carousel-track" id="logoTrack">
+          <img src="assets/logos/logo1.png" alt="Empresa parceira 1" loading="lazy">
+          <img src="assets/logos/logo2.png" alt="Empresa parceira 2" loading="lazy">
+          <img src="assets/logos/logo3.png" alt="Empresa parceira 3" loading="lazy">
+          <img src="assets/logos/logo4.png" alt="Empresa parceira 4" loading="lazy">
+          <img src="assets/logos/logo5.png" alt="Empresa parceira 5" loading="lazy">
+          <img src="assets/logos/logo1.png" alt="Empresa parceira 1" loading="lazy">
+          <img src="assets/logos/logo2.png" alt="Empresa parceira 2" loading="lazy">
+        </div>
+      </div>
+      <button class="carousel-btn next" aria-label="Próximo">❯</button>
+    </div>
+  </section>
+
+  <!-- Benefícios -->
+  <section id="benefits" class="wf-section container">
+    <h2>Por que escolher a WF?</h2>
+    <div class="grid-3">
+      <div class="card">
+        <h3>Design Sob Medida</h3>
+        <p>Sites únicos que refletem sua marca com perfeição.</p>
+      </div>
+      <div class="card">
+        <h3>Domínio Incluso</h3>
+        <p>Compre ou conecte seu domínio em 1 clique.</p>
+      </div>
+      <div class="card">
+        <h3>Entrega em 48h</h3>
+        <p>Site no ar rápido, sem complicação.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Templates -->
+  <section id="templates" class="wf-section container">
+    <h2>Templates Prontos para Personalizar</h2>
+    <div class="grid-3">
+      <div class="template-card">
+        <div class="placeholder-img">Loja Virtual</div>
+        <h4>E-commerce</h4>
+        <p>Perfeito para vendas online com carrinho e checkout.</p>
+      </div>
+      <div class="template-card">
+        <div class="placeholder-img">Serviços</div>
+        <h4>Prestadores de Serviço</h4>
+        <p>Agendamento, portfólio e contato integrado.</p>
+      </div>
+      <div class="template-card">
+        <div class="placeholder-img">Empresa</div>
+        <h4>Site Institucional</h4>
+        <p>Apresente sua empresa com profissionalismo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Domínio -->
+  <section id="domain" class="wf-section container bg-light">
+    <h2>Domínio Personalizado Incluso ou Integrado</h2>
+    <p>Escolha um domínio grátis no 1º ano (.com, .br, etc) ou conecte o seu existente.</p>
+    <ul class="check-list">
+      <li>Registro fácil e rápido</li>
+      <li>Renovação automática</li>
+      <li>SSL grátis incluso</li>
+      <li>Suporte 24h</li>
+    </ul>
+  </section>
+
+  <!-- Processo -->
+  <section id="process" class="wf-section container">
+    <h2>Como Funciona</h2>
+    <div class="process-steps">
+      <div class="step">
+        <span class="step-number">1</span>
+        <h4>Escolha o template</h4>
+      </div>
+      <div class="step">
+        <span class="step-number">2</span>
+        <h4>Preencha o briefing</h4>
+      </div>
+      <div class="step">
+        <span class="step-number">3</span>
+        <h4>Receba em 48h</h4>
+      </div>
+    </div>
+  </section>
+
+  <!-- Depoimentos -->
+  <section id="testimonials" class="wf-section container">
+    <h2>O que nossos clientes dizem</h2>
+    <div class="testimonials-grid">
+      <blockquote>
+        <p>"Entrega rápida e site lindo. Meu domínio já estava no ar no mesmo dia!"</p>
+        <cite>— Ana, Loja Bella Flor</cite>
+      </blockquote>
+      <blockquote>
+        <p>"Profissionalismo do início ao fim. Recomendo!"</p>
+        <cite>— Marcos, Consultoria MC</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="wf-section container bg-light">
+    <h2>Perguntas Frequentes</h2>
+    <details>
+      <summary>O domínio é realmente grátis?</summary>
+      <p>Sim! No primeiro ano, incluso em todos os planos.</p>
+    </details>
+    <details>
+      <summary>Posso usar meu domínio atual?</summary>
+      <p>Claro! Basta apontar os DNS ou conectar via painel.</p>
+    </details>
+    <details>
+      <summary>Quanto tempo leva para o site ficar pronto?</summary>
+      <p>Até 48h úteis após aprovação do briefing.</p>
+    </details>
+  </section>
+
+  <!-- Contato -->
+  <section id="contact" class="wf-section container">
+    <h2>Solicite seu Orçamento</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Nome" required aria-label="Nome" />
+      <input type="email" placeholder="E-mail" required aria-label="E-mail" />
+      <input type="tel" placeholder="Telefone" aria-label="Telefone" />
+      <textarea placeholder="Fale sobre seu projeto" rows="4" aria-label="Mensagem"></textarea>
+      <button type="submit" class="btn-primary">Enviar</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="wf-footer">
+    <div class="container footer-grid">
+      <div>
+        <h4>WF Sites</h4>
+        <p>Sites sob medida com domínio próprio.</p>
+      </div>
+      <div>
+        <h4>Links</h4>
+        <ul>
+          <li><a href="#templates">Templates</a></li>
+          <li><a href="#domain">Domínio</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Política de Privacidade</a></li>
+          <li><a href="#">Termos de Uso</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Newsletter</h4>
+        <form>
+          <input type="email" placeholder="Seu e-mail" />
+          <button class="btn-small">Inscrever</button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 WF Sites. Todos os direitos reservados.</p>
+      <div class="social">
+        <a href="#" aria-label="Instagram">📸</a>
+        <a href="#" aria-label="LinkedIn">💼</a>
+        <a href="#" aria-label="WhatsApp">💬</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/utilities.js"></script>
+  <script src="js/main.js"></script>
+</body>
+  </html>
