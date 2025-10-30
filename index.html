@@ -139,7 +139,6 @@
 
       /* Efeito "Glow" do Hero */
       .glow-effect {
-        display:none;
         position: absolute;
         top: 0%;
         left: 50%;
@@ -152,11 +151,7 @@
         z-index: 0;
         pointer-events: none;
       }
-        .glow-effect {
-  pointer-events: none; /* não atrapalha cliques */
-  z-index: 0; /* fica atrás do texto e da imagem */
-}
-
+        
         
       /* Animação do Carrossel de Logos */
       .logo-scroller {
@@ -216,7 +211,8 @@
   }" 
   x-init="initTheme()" 
   :class="{'light-mode': lightMode}"
->
+  class="select-none" >
+
     <div class="top-bar bg-card-escuro py-2 px-4 text-center text-sm font-medium">
       <p>
         ✨ 20% de desconto no seu 1º Projeto.
