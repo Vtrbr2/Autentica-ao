@@ -194,18 +194,7 @@
       .form-input:focus {
         @apply border-roxo-principal;
       }
-        .cursos-carousel .swiper-button-next {
-  right: 0.5rem; /* Distância da borda direita */
-}
-.cursos-carousel .swiper-button-prev {
-  left: 0.5rem; /* Distância da borda esquerda */
-}
-@media (max-width: 640px) {
-  .cursos-carousel .swiper-button-next,
-  .cursos-carousel .swiper-button-prev {
-    display: none; /* Esconde em mobile se preferir swipe por toque */
-  }
-}
+        
     </style>
 </head>
 
@@ -488,80 +477,105 @@
     </div>
   </div>
     </section>
-   <!--   <section id="cursos" class="section bg-card-escuro py-20 border-t border-b border-borda-divisao">
-        <div class="container mx-auto px-6">
-          <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-4">
-            Aprenda e Lucre Conosco
-          </h2>
-          <p class="section-description text-lg text-texto-cinza text-center max-w-2xl mx-auto mb-12">
-            Cursos em destaque para afiliados.
-          </p>
 
-          <div class="swiper cursos-carousel relative pb-12">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <div class="curso-card bg-fundo-escuro rounded-lg overflow-hidden border border-borda-divisao flex flex-col h-full">
-                  <img src="https://i.ibb.co/M5JqM0K/curso-1.jpg" alt="Curso 1" class="w-full h-48 object-cover"/>
-                  <div class="p-6 flex flex-col flex-grow">
-                    <h3 class="text-xl font-bold mb-3">Marketing Digital</h3>
-                    <p class="text-texto-cinza text-sm mb-6 flex-grow">
-                      Aprenda a vender todos os dias com estratégias comprovadas.
-                    </p>
-                    <a href="#" target="_blank" class="btn btn-primary w-full text-center bg-roxo-principal text-white font-semibold py-2 px-5 rounded-lg hover:opacity-80 transition-opacity">
-                      Ver Curso
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="curso-card bg-fundo-escuro rounded-lg overflow-hidden border border-borda-divisao flex flex-col h-full">
-                  <img src="https://i.ibb.co/yY13sP9/curso-2.jpg" alt="Curso 2" class="w-full h-48 object-cover"/>
-                  <div class="p-6 flex flex-col flex-grow">
-                    <h3 class="text-xl font-bold mb-3">Design com Canva Pro</h3>
-                    <p class="text-texto-cinza text-sm mb-6 flex-grow">
-                      Crie artes incríveis e profissionais usando apenas o Canva.
-                    </p>
-                    <a href="#" target="_blank" class="btn btn-primary w-full text-center bg-roxo-principal text-white font-semibold py-2 px-5 rounded-lg hover:opacity-80 transition-opacity">
-                      Acessar
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="curso-card bg-fundo-escuro rounded-lg overflow-hidden border border-borda-divisao flex flex-col h-full">
-                  <img src="https://i.ibb.co/GvxYmGk/curso-3.jpg" alt="Curso 3" class="w-full h-48 object-cover"/>
-                  <div class="p-6 flex flex-col flex-grow">
-                    <h3 class="text-xl font-bold mb-3">Tráfego Pago Avançado</h3>
-                    <p class="text-texto-cinza text-sm mb-6 flex-grow">
-                      Domine anúncios no Meta e Google e escale seus resultados.
-                    </p>
-                    <a href="#" target="_blank" class="btn btn-primary w-full text-center bg-roxo-principal text-white font-semibold py-2 px-5 rounded-lg hover:opacity-80 transition-opacity">
-                      Começar
-                    </a>
-                  </div>
-                </div>
-              </div>
-              <div class="swiper-slide">
-                <div class="curso-card bg-fundo-escuro rounded-lg overflow-hidden border border-borda-divisao flex flex-col h-full">
-                  <img src="https://i.ibb.co/M5JqM0K/curso-1.jpg" alt="Curso 4" class="w-full h-48 object-cover"/>
-                  <div class="p-6 flex flex-col flex-grow">
-                    <h3 class="text-xl font-bold mb-3">Copywriting com IA</h3>
-                    <p class="text-texto-cinza text-sm mb-6 flex-grow">
-                      Aprenda a criar textos que vendem usando o ChatGPT.
-                    </p>
-                    <a href="#" target="_blank" class="btn btn-primary w-full text-center bg-roxo-principal text-white font-semibold py-2 px-5 rounded-lg hover:opacity-80 transition-opacity">
-                      Ver Curso
-                    </a>
-                  </div>
-                </div>
-              </div>
+
+        <section id="cursos" class="section bg-card-escuro py-20 border-t border-b border-borda-divisao">
+  <div class="container mx-auto px-6">
+    <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-4">
+      Aprenda e Lucre Conosco
+    </h2>
+    <p class="section-description text-lg text-texto-cinza text-center max-w-2xl mx-auto mb-12">
+      Cursos práticos para você dominar marketing, design e vendas com IA.
+    </p>
+
+    <!-- Carrossel Automático com Alpine.js -->
+    <div 
+      x-data="{
+        cursos: [
+          { 
+            img: 'https://i.ibb.co/M5JqM0K/curso-1.jpg', 
+            titulo: 'Marketing Digital', 
+            desc: 'Vendas diárias com estratégias comprovadas.', 
+            btn: 'Ver Curso', 
+            link: '#'
+          },
+          { 
+            img: 'https://i.ibb.co/yY13sP9/curso-2.jpg', 
+            titulo: 'Design com Canva Pro', 
+            desc: 'Crie artes profissionais em minutos.', 
+            btn: 'Acessar', 
+            link: '#'
+          },
+          { 
+            img: 'https://i.ibb.co/GvxYmGk/curso-3.jpg', 
+            titulo: 'Tráfego Pago Avançado', 
+            desc: 'Anúncios no Meta e Google que convertem.', 
+            btn: 'Começar', 
+            link: '#'
+          },
+          { 
+            img: 'https://i.ibb.co/M5JqM0K/curso-1.jpg', 
+            titulo: 'Copywriting com IA', 
+            desc: 'Textos que vendem usando ChatGPT.', 
+            btn: 'Ver Curso', 
+            link: '#'
+          }
+        ],
+        currentIndex: 0,
+        next() {
+          this.currentIndex = (this.currentIndex + 1) % this.cursos.length;
+        },
+        init() {
+          setInterval(() => this.next(), 4000); // Troca a cada 4s
+        }
+      }"
+      class="relative overflow-hidden"
+    >
+      <!-- Slides -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <template x-for="(curso, index) in cursos" :key="index">
+          <div
+            x-show="index >= currentIndex && index < currentIndex + (window.innerWidth < 768 ? 1 : 3)"
+            x-transition:enter="transition ease-out duration-500"
+            x-transition:enter-start="opacity-0 transform translate-x-8"
+            x-transition:enter-end="opacity-100 transform translate-x-0"
+            x-transition:leave="transition ease-in duration-300"
+            x-transition:leave-start="opacity-100 transform translate-x-0"
+            x-transition:leave-end="opacity-0 transform -translate-x-8"
+            class="curso-card bg-fundo-escuro rounded-xl overflow-hidden border border-borda-divisao transition-all duration-300 hover:border-roxo-principal hover:shadow-xl hover:shadow-roxo-principal/10 hover:-translate-y-1"
+          >
+            <img :src="curso.img" :alt="curso.titulo" class="w-full h-48 object-cover" />
+            <div class="p-6 flex flex-col h-full">
+              <h3 class="text-xl font-bold mb-2 text-texto-claro" x-text="curso.titulo"></h3>
+              <p class="text-texto-cinza text-sm mb-6 flex-grow" x-text="curso.desc"></p>
+              <a 
+                :href="curso.link" 
+                target="_blank"
+                class="btn w-full text-center bg-gradient-to-r from-roxo-principal to-cta-magenta text-white font-semibold py-2.5 px-5 rounded-lg hover:opacity-90 transition-opacity transform hover:scale-105"
+                x-text="curso.btn"
+              ></a>
             </div>
           </div>
-          <div class="swiper-button-next w-12 h-12 bg-fundo-escuro text-roxo-principal rounded-full border border-borda-divisao shadow-lg after:text-xl"></div>
-          <div class="swiper-button-prev w-12 h-12 bg-fundo-escuro text-roxo-principal rounded-full border border-borda-divisao shadow-lg after:text-xl"></div>
-        </div>
-      </section>
-      -->
+        </template>
+      </div>
+
+      <!-- Indicadores (bolinhas) -->
+      <div class="flex justify-center gap-2 mt-8">
+        <template x-for="(curso, index) in cursos">
+          <button
+            @click="currentIndex = index"
+            :class="currentIndex === index ? 'bg-roxo-principal' : 'bg-borda-divisao'"
+            class="w-2 h-2 rounded-full transition-all duration-300 hover:bg-cta-magenta"
+            :aria-label="'Ir para curso ' + (index + 1)"
+          ></button>
+        </template>
+      </div>
+    </div>
+  </div>
+        </section>
+
+        
+      
       <section id="faq" class="section container mx-auto px-6" x-data="{ activeIndex: null }">
         <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-4">
           Perguntas Frequentes (FAQ)
