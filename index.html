@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IA Web Factory - Sites Inteligentes, Resultados Reais</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+  <style>
+    :root{
+      --fundo-escuro:#0d1117;
+      --card-escuro:#161b22;
+      --borda-divisao:#30363d;
+      --roxo-principal:#8b5cf6;
+      --cta-magenta:#db2777;
+      --texto-claro:#e6edf3;
+      --texto-cinza:#848d97;
+
+      --fundo-claro:#ffffff;
+      --card-claro:#f1f5f9;
+      --borda-clara:#e2e8f0;
+      --texto-escuro:#0d1117;
+      --texto-cinza-claro:#475569;
+
+      --container-max:1200px;
+    }
+
+    /* Base */
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--fundo-escuro);
+      color:var(--texto-claro);
+      transition:background-color .3s,color .3s;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    button{font:inherit}
+
+    /* Helpers equivalentes às utilitárias usadas */
+    .container{max-width:var(--container-max);margin:0 auto;padding:0 24px}
+    .py-2{padding-top:8px;padding-bottom:8px}
+    .py-3{padding-top:12px;padding-bottom:12px}
+    .py-5{padding-top:20px;padding-bottom:20px}
+    .py-6{padding-top:24px;padding-bottom:24px}
+    .py-16{padding-top:64px;padding-bottom:64px}
+    .py-24{padding-top:96px;padding-bottom:96px}
+    .px-6{padding-left:24px;padding-right:24px}
+    .mb-4{margin-bottom:16px}
+    .mb-6{margin-bottom:24px}
+    .mb-8{margin-bottom:32px}
+    .mb-12{margin-bottom:48px}
+    .mt-16{margin-top:64px}
+    .w-10{width:40px}.h-10{height:40px}
+    .rounded-lg{border-radius:12px}
+    .rounded-xl{border-radius:16px}
+    .text-center{text-align:center}
+    .text-sm{font-size:.875rem}
+    .text-lg{font-size:1.125rem}
+    .text-xl{font-size:1.25rem}
+    .text-3xl{font-size:1.875rem}
+    .text-4xl{font-size:2.25rem}
+    .text-5xl{font-size:3rem}
+    .font-semibold{font-weight:600}
+    .font-bold{font-weight:700}
+    .font-black{font-weight:900}
+    .uppercase{text-transform:uppercase}
+    .tracking-wider{letter-spacing:.05em}
+    .grid{display:grid}
+    .gap-6{gap:24px}
+    .gap-12{gap:48px}
+    .flex{display:flex}
+    .items-center{align-items:center}
+    .justify-between{justify-content:space-between}
+    .justify-center{justify-content:center}
+    .border{border:1px solid}
+    .border-t{border-top:1px solid}
+    .border-l{border-left:1px solid}
+    .sticky{position:sticky}
+    .top-0{top:0}
+    .z-50{z-index:50}
+    .shadow-2xl{box-shadow:0 25px 50px -12px rgba(0,0,0,.5)}
+    .transition-colors{transition:color .3s,background-color .3s,border-color .3s}
+    .transition-all{transition:all .3s}
+    .transform{transform:translateZ(0)}
+    .hover-scale:hover{transform:scale(1.05)}
+
+    /* Cores aplicadas às partes */
+    .bg-card-escuro{background:var(--card-escuro)}
+    .bg-fundo-escuro{background:var(--fundo-escuro)}
+    .text-texto-claro{color:var(--texto-claro)}
+    .text-texto-cinza{color:var(--texto-cinza)}
+    .text-roxo{color:var(--roxo-principal)}
+    .bg-roxo{background:var(--roxo-principal)}
+    .bg-magenta{background:var(--cta-magenta)}
+    .border-borda-divisao{border-color:var(--borda-divisao)}
+    .border-transparent{border-color:transparent}
+
+    /* Navbar */
+    .navbar{
+      height:80px;
+      border-bottom:1px solid var(--borda-divisao);
+      background:var(--fundo-escuro);
+    }
+    .logo{display:flex;align-items:center;justify-content:center}
+    .logo-text{font-weight:700}
+    .nav-desktop{display:none}
+    .menu-btn{font-size:28px;background:none;border:0;color:var(--texto-claro);cursor:pointer}
+
+    /* Mobile drawer */
+    .nav-mobile{
+      position:fixed;top:0;right:0;height:100%;width:80vw;max-width:360px;
+      background:var(--fundo-escuro);border-left:1px solid var(--borda-divisao);
+      padding:24px;display:none;flex-direction:column;box-shadow:-20px 0 40px rgba(0,0,0,.5);z-index:1000
+    }
+    .nav-mobile.open{display:flex;animation:slideIn .3s ease-out}
+    .nav-mobile .nav-close{font-size:36px;background:none;border:0;color:var(--texto-claro);align-self:flex-end;cursor:pointer}
+    .nav-mobile a{color:var(--texto-claro);font-size:20px;font-weight:600}
+    .nav-mobile .theme-switch{border-top:1px solid var(--borda-divisao);margin-top:auto;padding-top:24px;display:flex;justify-content:space-between;align-items:center}
+    @keyframes slideIn{from{transform:translateX(100%)}to{transform:translateX(0)}}
+
+    /* Switch simples */
+    .switch{position:relative;width:44px;height:24px;background:var(--borda-divisao);border-radius:999px;cursor:pointer}
+    .switch .dot{position:absolute;top:2px;left:2px;width:20px;height:20px;border-radius:50%;background:#fff;transition:transform .25s}
+    .switch.on{background:var(--roxo-principal)}
+    .switch.on .dot{transform:translateX(20px)}
+
+    /* Hero */
+    .hero{position:relative;overflow:hidden}
+    .glow-effect{
+      position:absolute;top:0;left:50%;transform:translateX(-50%);
+      width:600px;height:500px;background:rgba(139,92,246,.15);
+      filter:blur(120px);border-radius:50%;z-index:0;pointer-events:none
+    }
+    .hero .z-10{position:relative;z-index:10}
+    .hero h1{line-height:1.1;margin:0 0 24px}
+    .gradient-text{
+      background:linear-gradient(90deg,var(--roxo-principal),var(--cta-magenta));
+      -webkit-background-clip:text;background-clip:text;color:transparent
+    }
+    .btn{display:inline-block;border:2px solid transparent;border-radius:12px;font-weight:600;padding:12px 24px}
+    .btn-primary{background:var(--cta-magenta);color:#fff}
+    .btn-primary:hover{background:transparent;color:var(--cta-magenta);border-color:var(--cta-magenta)}
+    .btn-outline{background:transparent;border-color:var(--borda-divisao);color:var(--texto-claro)}
+    .btn-outline:hover{background:var(--borda-divisao)}
+
+    /* Client logos scroller */
+    .client-logos .section-subtitle{color:var(--texto-cinza)}
+    .logo-scroller{max-width:100%;overflow:hidden;mask:linear-gradient(90deg,transparent,#fff 20%,#fff 80%,transparent);-webkit-mask:linear-gradient(90deg,transparent,#fff 20%,#fff 80%,transparent)}
+    .logo-scroller-inner{display:flex;width:max-content;gap:48px;animation:scroll 30s linear infinite}
+    .logo-scroller img{height:40px;width:auto;filter:grayscale(1);opacity:.6;transition:filter .3s,opacity .3s}
+    .logo-scroller img:hover{filter:grayscale(0);opacity:1}
+    @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+    /* Cards serviços */
+    .service-grid{display:grid;grid-template-columns:1fr;gap:24px}
+    .service-card{
+      background:var(--card-escuro);padding:24px;border-radius:16px;border:1px solid var(--borda-divisao);
+      transition:transform .3s,border-color .3s,box-shadow .3s
+    }
+    .service-card:hover{transform:translateY(-4px);border-color:var(--roxo-principal);box-shadow:0 20px 60px -20px rgba(139,92,246,.2)}
+    .card-icon{color:var(--roxo-principal);font-size:32px;margin-bottom:16px}
+
+    /* FAQ — já sem Tailwind, mantendo seu visual */
+    .faq-section{padding:80px 20px;background:transparent;color:var(--texto-claro);text-align:center}
+    .faq-section h2{font-size:2rem;margin-bottom:40px;color:var(--roxo-principal)}
+    .faq-container{max-width:800px;margin:0 auto;text-align:left}
+    .faq-item{background:transparent;border-radius:10px;margin-bottom:15px;overflow:hidden;transition:all .3s;border:1px solid var(--borda-divisao)}
+    .faq-item:hover{border-color:var(--roxo-principal)}
+    .faq-question{width:100%;background:none;border:0;color:var(--texto-claro);font-size:1.1rem;padding:20px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-weight:500}
+    .faq-question i{transition:transform .3s;color:var(--roxo-principal);font-size:1.5rem}
+    .faq-answer{max-height:0;overflow:hidden;background:transparent;padding:0 20px;transition:all .4s ease;color:var(--texto-cinza)}
+    .faq-item.active .faq-answer{max-height:300px;padding:15px 20px 25px}
+    .faq-item.active .faq-question i{transform:rotate(180deg)}
+
+    /* Formulário com floating label sem Tailwind */
+    .contact-form{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:24px}
+    .form-group{position:relative}
+    .form-input{
+      width:100%;background:transparent;padding:10px 0;border:0;border-bottom:2px solid var(--borda-divisao);
+      color:inherit;outline:0;appearance:none;z-index:1
+    }
+    .form-label{
+      position:absolute;top:12px;left:0;color:var(--texto-cinza);font-size:1rem;transform-origin:0 0;
+      transform:translateY(0) scale(1);transition:transform .3s,color .3s;pointer-events:none
+    }
+    .form-input:focus{border-color:var(--roxo-principal)}
+    .form-input:focus + .form-label,
+    .form-input:not(:placeholder-shown) + .form-label{
+      color:var(--roxo-principal);
+      transform:translateY(-24px) scale(.75)
+    }
+    textarea.form-input{min-height:120px;resize:vertical}
+
+    /* Footer */
+    .footer{background:var(--card-escuro);border-top:1px solid var(--borda-divisao)}
+    .footer-grid{display:grid;grid-template-columns:1fr;gap:48px}
+    .footer-links{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+    .footer-links a{color:var(--texto-cinza)}
+    .footer-links a:hover{color:var(--roxo-principal)}
+    .social-links a{color:var(--texto-cinza);font-size:24px}
+    .social-links a:hover{color:var(--roxo-principal)}
+    .copyright{border-top:1px solid var(--borda-divisao);padding:24px 0;text-align:center}
+    .footer-slogan{color:var(--texto-cinza)}
+
+    /* Light mode (mantendo as mesmas regras) */
+    body.light-mode{background:var(--fundo-claro);color:var(--texto-escuro)}
+    body.light-mode .top-bar{background:var(--card-claro);color:var(--texto-escuro)}
+    body.light-mode .navbar,
+    body.light-mode .nav-mobile{background:var(--fundo-claro);border-color:var(--borda-clara)}
+    body.light-mode .logo-text,
+    body.light-mode .menu-btn,
+    body.light-mode .nav-desktop a,
+    body.light-mode .nav-mobile a{color:var(--texto-escuro)}
+    body.light-mode .nav-desktop a:hover,
+    body.light-mode .nav-mobile a:hover{color:var(--roxo-principal)}
+    body.light-mode .section-subtitle,
+    body.light-mode .hero p,
+    body.light-mode .faq-answer p{color:var(--texto-cinza-claro)}
+    body.light-mode .client-logos,
+    body.light-mode .footer{border-color:var(--borda-clara)}
+    body.light-mode .service-card,
+    body.light-mode .footer{background:var(--card-claro);border-color:var(--borda-clara)}
+    body.light-mode .card-icon,
+    body.light-mode .faq-question i{color:var(--roxo-principal)}
+    body.light-mode .form-input{border-color:var(--borda-clara);color:var(--texto-escuro)}
+    body.light-mode .form-label{color:var(--texto-cinza-claro)}
+    body.light-mode .form-input:focus{border-color:var(--roxo-principal)}
+    body.light-mode .form-input:focus + .form-label,
+    body.light-mode .form-input:not(:placeholder-shown) + .form-label{color:var(--roxo-principal)}
+    body.light-mode .glow-effect{background-color:rgba(139,92,246,.1)}
+
+    /* Responsivo */
+    @media (min-width:768px){
+      .nav-desktop{display:flex;gap:24px;align-items:center}
+      .menu-btn{display:none}
+      .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+      .service-grid{grid-template-columns:repeat(2,1fr)}
+      .contact-form{grid-template-columns:repeat(2,1fr)}
+      .footer-grid{grid-template-columns:repeat(4,1fr)}
+    }
+    @media (min-width:1024px){
+      .service-grid{grid-template-columns:repeat(4,1fr)}
+      .text-5xl-lg{font-size:3.75rem}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top-bar bg-card-escuro py-2">
+    <div class="container text-center">
+      <p class="text-sm">
+        ✨ 20% de desconto no seu 1º Projeto.
+        <a href="#precos" class="font-bold" style="color:var(--roxo-principal);text-decoration:underline;margin-left:4px">Saiba mais</a>
+      </p>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="container flex items-center justify-between">
+      <a href="#" class="flex items-center" style="gap:12px">
+        <div class="logo w-10 h-10 bg-roxo rounded-lg" style="color:#fff;font-weight:700;font-size:20px">WF</div>
+        <div class="logo-text text-xl">IA Web Factory</div>
+      </a>
+
+      <div class="nav-desktop">
+        <a href="#servicos" class="text-texto-cinza transition-colors">Serviços</a>
+        <a href="#cursos" class="text-texto-cinza transition-colors">Cursos</a>
+        <a href="#faq" class="text-texto-cinza transition-colors">FAQ</a>
+        <a href="#contato" class="text-texto-cinza transition-colors">Contato</a>
+        <a href="loguin.html" class="btn btn-primary" style="margin-left:16px">Login</a>
+      </div>
+
+      <button id="openMenu" class="menu-btn" aria-label="Abrir menu"><i class="bx bx-menu"></i></button>
+
+      <div id="mobileMenu" class="nav-mobile" aria-hidden="true">
+        <button id="closeMenu" class="nav-close" aria-label="Fechar menu"><i class="bx bx-x"></i></button>
+
+        <div style="display:flex;flex-direction:column;gap:24px;margin-top:32px">
+          <a href="#servicos" class="nav-mobile-link">Serviços</a>
+          <a href="#cursos" class="nav-mobile-link">Cursos</a>
+          <a href="#faq" class="nav-mobile-link">FAQ</a>
+          <a href="#contato" class="nav-mobile-link">Contato</a>
+          <a href="loguin.html" class="btn btn-primary" style="width:100%;text-align:center;margin-top:8px">Login</a>
+        </div>
+
+        <div class="theme-switch">
+          <span id="themeLabel" class="text-sm" style="color:var(--texto-cinza)">Modo Escuro</span>
+          <div id="themeSwitch" class="switch"><div class="dot"></div></div>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="container hero-grid py-16">
+        <div class="glow-effect"></div>
+        <div class="z-10" style="text-align:center">
+          <h1 class="text-4xl" style="font-weight:900;letter-spacing:-0.02em">
+            Sua Fábrica de Sites com
+            <span class="gradient-text">Inteligência Artificial</span>
+          </h1>
+          <p class="text-lg text-texto-cinza" style="max-width:640px;margin:16px auto 32px">
+            Transformamos sua ideia em um site profissional, responsivo e
+            otimizado para vendas. Rápido, inteligente e com a sua cara.
+          </p>
+          <div class="flex" style="gap:16px;justify-content:center;flex-wrap:wrap">
+            <a href="#precos" class="btn btn-primary hover-scale">Ver Planos</a>
+            <a href="#servicos" class="btn btn-outline">Nossos Serviços</a>
+          </div>
+        </div>
+        <div class="z-10">
+          <img src="https://i.ibb.co/Xz9QJgK/hero-image.png" alt="Dashboard de criação de sites com IA" class="rounded-lg shadow-2xl"/>
+        </div>
+      </div>
+    </section>
+
+    <section id="clientes" class="client-logos py-16 border-t" style="border-color:var(--borda-divisao)">
+      <div class="container px-6">
+        <h3 class="section-subtitle text-center font-semibold uppercase tracking-wider mb-8">Empresas que confiam na nossa IA</h3>
+        <div class="logo-scroller" data-speed="fast">
+          <div class="logo-scroller-inner" id="logoInner">
+            <img src="https://i.ibb.co/jDNd70X/logo-1.png" alt="Cliente 1" />
+            <img src="https://i.ibb.co/hK4XyQ0/logo-2.png" alt="Cliente 2" />
+            <img src="https://i.ibb.co/gWFQjC3/logo-3.png" alt="Cliente 3" />
+            <img src="https://i.ibb.co/BfL3M3J/logo-4.png" alt="Cliente 4" />
+            <img src="https://i.ibb.co/bWcqs6z/logo-5.png" alt="Cliente 5" />
+            <img src="https://i.ibb.co/jDNd70X/logo-1.png" alt="Cliente 1" />
+            <img src="https://i.ibb.co/hK4XyQ0/logo-2.png" alt="Cliente 2" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicos" class="container px-6">
+      <h2 class="text-3xl font-bold text-center mb-4">O que nós fazemos?</h2>
+      <p class="text-lg text-texto-cinza text-center" style="max-width:720px;margin:0 auto 48px">Soluções completas para sua presença digital.</p>
+
+      <div class="service-grid">
+        <div class="service-card">
+          <i class="bx bx-rocket card-icon"></i>
+          <h3 class="text-xl font-bold mb-3">Sites Profissionais com IA</h3>
+          <p class="text-texto-cinza" style="font-size:.95rem;line-height:1.6">
+            Sites completos com design personalizado, SEO otimizado e textos
+            gerados por IA + Domínio grátis.
+          </p>
+        </div>
+        <div class="service-card">
+          <i class="bx bx-target-lock card-icon"></i>
+          <h3 class="text-xl font-bold mb-3">Landing Pages de Conversão</h3>
+          <p class="text-texto-cinza" style="font-size:.95rem;line-height:1.6">
+            Páginas únicas para campanhas, lançamento de produtos e captação
+            de clientes. Focadas 100% em resultado.
+          </p>
+        </div>
+        <div class="service-card">
+          <i class="bx bx-store card-icon"></i>
+          <h3 class="text-xl font-bold mb-3">Lojas Virtuais (E-commerce)</h3>
+          <p class="text-texto-cinza" style="font-size:.95rem;line-height:1.6">
+            Sua loja online completa, com cadastro de produtos, integração de
+            pagamento (Pix, Cartão) e pronta para vender.
+          </p>
+        </div>
+        <div class="service-card">
+          <i class="bx bx-paint card-icon"></i>
+          <h3 class="text-xl font-bold mb-3">Recriação e Otimização</h3>
+          <p class="text-texto-cinza" style="font-size:.95rem;line-height:1.6">
+            Recriamos sites antigos com tecnologia moderna e performance
+            otimizada para 2025.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section" id="faq">
+      <h2>Perguntas Frequentes (FAQ)</h2>
+      <div class="faq-container">
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>💡 Como funciona a criação de um site pela AI Web Factory?</span>
+            <i class="bx bx-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Você escolhe o tipo de site, envia suas preferências e nossa IA cria o design personalizado automaticamente. Depois, fazemos os ajustes finais juntos!</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>⏱️ Quanto tempo leva para o site ficar pronto?</span>
+            <i class="bx bx-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Em média, entre 24 e 48 horas após o envio das informações necessárias, dependendo da complexidade do projeto.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>💰 Posso pagar parcelado?</span>
+            <i class="bx bx-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Sim! Aceitamos pagamentos via Pix, cartão de crédito, boleto e outras formas. Parcelamentos podem ser combinados diretamente pelo WhatsApp.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>🔒 Vocês oferecem suporte após a entrega?</span>
+            <i class="bx bx-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Sim, oferecemos suporte técnico gratuito durante o contrato após a entrega e planos adicionais de manutenção mensal, caso deseje.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>🧠 É possível integrar IA no meu site?</span>
+            <i class="bx bx-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <p>Claro! Podemos adicionar chatbots inteligentes, assistentes automáticos e até sistemas com ideias integradas, sob demanda.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="contato" class="container px-6">
+      <h2 class="text-3xl font-bold text-center mb-4">Vamos começar seu projeto?</h2>
+      <p class="text-lg text-texto-cinza text-center" style="max-width:720px;margin:0 auto 48px">
+        Preencha o formulário e nossa equipe entrará em contato em 24 horas.
+      </p>
+
+      <form
+        action="https://formsubmit.co/iawebfactory.site@gmail.com"
+        method="POST"
+        class="contact-form"
+        style="grid-column-gap:24px;grid-row-gap:32px"
+      >
+        <div class="form-group">
+          <input type="text" name="name" id="name" class="form-input" placeholder=" " required/>
+          <label for="name" class="form-label">Nome completo</label>
+        </div>
+        <div class="form-group">
+          <input type="email" name="email" id="email" class="form-input" placeholder=" " required/>
+          <label for="email" class="form-label">Seu melhor e-mail</label>
+        </div>
+        <div class="form-group" style="grid-column:1/-1">
+          <input type="tel" name="phone" id="phone" class="form-input" placeholder=" " required/>
+          <label for="phone" class="form-label">WhatsApp (com DDD)</label>
+        </div>
+        <div class="form-group" style="grid-column:1/-1">
+          <textarea name="message" id="message" class="form-input" placeholder=" " rows="4" required></textarea>
+          <label for="message" class="form-label">Fale um pouco sobre sua ideia...</label>
+        </div>
+
+        <input type="hidden" name="_next" value="https://SEU_SITE.com/obrigado.html" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_autoresponse" value="Recebemos sua mensagem! Em breve, um especialista da IA Web Factory entrará em contato." />
+
+        <div style="grid-column:1/-1">
+          <button type="submit" class="btn btn-primary hover-scale" style="width:100%">Enviar Mensagem</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer mt-16">
+    <div class="container py-16 footer-grid">
+      <div>
+        <a href="#" class="flex items-center" style="gap:12px;margin-bottom:16px">
+          <div class="logo w-10 h-10 bg-roxo rounded-lg" style="color:#fff;font-weight:700;font-size:20px">WF</div>
+          <div class="logo-text text-xl">IA Web Factory</div>
+        </a>
+        <p class="footer-slogan text-sm mb-6">Sites Inteligentes, Resultados Reais.</p>
+        <div class="social-links" style="display:flex;gap:16px">
+          <a href="#" aria-label="Instagram"><i class="bx bxl-instagram"></i></a>
+          <a href="#" aria-label="Facebook"><i class="bx bxl-facebook-square"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="bx bxl-linkedin-square"></i></a>
+        </div>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wider mb-4">Navegação</h3>
+        <ul class="footer-links">
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#cursos">Cursos</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wider mb-4">Legal</h3>
+        <ul class="footer-links">
+          <li><a href="#">Termos de Serviço</a></li>
+          <li><a href="#">Política de Privacidade</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-sm font-semibold uppercase tracking-wider mb-4">Contato</h3>
+        <ul class="footer-links">
+          <li class="text-texto-cinza">iawebfactory.site@gmail.com</li>
+          <li class="text-texto-cinza">+55 (99) 91234-5678</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="copyright">
+      <p class="text-texto-cinza text-sm">© <span id="currentYear"></span> IA WEB FACTORY. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    // Tema inicial
+    (function initTheme(){
+      const saved = localStorage.getItem('theme');
+      const isLight = saved === 'light';
+      if(isLight) document.body.classList.add('light-mode');
+      const label = document.getElementById('themeLabel');
+      const sw = document.getElementById('themeSwitch');
+      if(label && sw){
+        label.textContent = document.body.classList.contains('light-mode') ? 'Modo Claro' : 'Modo Escuro';
+        if(document.body.classList.contains('light-mode')) sw.classList.add('on');
+        sw.addEventListener('click',()=>{
+          document.body.classList.toggle('light-mode');
+          sw.classList.toggle('on');
+          const lightNow = document.body.classList.contains('light-mode');
+          localStorage.setItem('theme', lightNow ? 'light':'dark');
+          label.textContent = lightNow ? 'Modo Claro' : 'Modo Escuro';
+        });
+      }
+    })();
+
+    // Menu mobile
+    const openBtn = document.getElementById('openMenu');
+    const closeBtn = document.getElementById('closeMenu');
+    const drawer = document.getElementById('mobileMenu');
+    function closeDrawer(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true')}
+    function openDrawer(){drawer.classList.add('open');drawer.setAttribute('aria-hidden','false')}
+    openBtn.addEventListener('click', openDrawer);
+    closeBtn.addEventListener('click', closeDrawer);
+    drawer.addEventListener('click', (e)=>{ if(e.target === drawer) closeDrawer(); });
+    drawer.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeDrawer));
+
+    // Duplicação do scroller de logos (sem Alpine)
+    (function initLogos(){
+      const inner = document.getElementById('logoInner');
+      if(!inner) return;
+      const children = Array.from(inner.children);
+      children.forEach(el=>{
+        const dup = el.cloneNode(true);
+        dup.setAttribute('aria-hidden','true');
+        inner.appendChild(dup);
+      });
+    })();
+
+    // FAQ toggle (sem Alpine)
+    document.querySelectorAll('.faq-item').forEach(item=>{
+      const btn = item.querySelector('.faq-question');
+      btn.addEventListener('click',()=>{
+        const active = item.classList.contains('active');
+        document.querySelectorAll('.faq-item.active').forEach(i=>i.classList.remove('active'));
+        if(!active) item.classList.add('active');
+      });
+    });
+
+    // Ano atual no footer
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Swiper (deixa como estava, se usar em outra seção)
+    try{
+      new Swiper(".cursos-carousel",{
+        slidesPerView:1,spaceBetween:24,loop:true,
+        navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},
+        breakpoints:{640:{slidesPerView:2},1024:{slidesPerView:3}}
+      });
+    }catch(e){}
+  </script>
+</body>
+</html>
