@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IA Web Factory - Sites Inteligentes, Resultados Reais</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body class="select-none">
+    <div class="top-bar">
+      <p>✨ 20% de desconto no seu 1º Projeto. <a href="#precos">Saiba mais</a></p>
+    </div>
+
+    <nav class="navbar container">
+      <a href="#" class="logo-container">
+        <div class="logo">WF</div>
+        <div class="logo-text">IA Web Factory</div>
+      </a>
+
+      <div class="nav-desktop">
+        <a href="#servicos">Serviços</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contato">Contato</a>
+        <a href="loguin.html" class="btn btn-login">Login</a>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
+        <i class="bx bx-menu"></i>
+      </button>
+
+      <div class="nav-mobile" id="navMenu">
+        <button class="nav-close" id="navClose" aria-label="Fechar menu">
+          <i class="bx bx-x"></i>
+        </button>
+
+        <a href="#servicos" class="nav-mobile-link">Serviços</a>
+        <a href="#cursos" class="nav-mobile-link">Cursos</a>
+        <a href="#faq" class="nav-mobile-link">FAQ</a>
+        <a href="#contato" class="nav-mobile-link">Contato</a>
+        <a href="loguin.html" class="btn btn-login">Login</a>
+
+        <div class="theme-switcher">
+          <span class="theme-label" id="theme-label">Modo Escuro</span>
+          <label class="switch">
+            <input id="theme-switch" type="checkbox" />
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section id="hero" class="hero container">
+        <div class="glow-effect"></div>
+        <div class="hero-text">
+          <h1 class="gradient-text">
+            Sua Fábrica de Sites com Inteligência Artificial
+          </h1>
+          <p>
+            Transformamos sua ideia em um site profissional, responsivo e
+            otimizado para vendas. Rápido, inteligente e com a sua cara.
+          </p>
+          <div class="hero-buttons">
+            <a href="#precos" class="btn btn-primary">Ver Planos</a>
+            <a href="#servicos" class="btn btn-secondary-outline"
+              >Nossos Serviços</a
+            >
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://i.ibb.co/Xz9QJgK/hero-image.png"
+            alt="Dashboard de criação de sites com IA"
+          />
+        </div>
+      </section>
+
+      <section id="clientes" class="client-logos container">
+        <h3 class="section-subtitle">Empresas que confiam na nossa IA</h3>
+        <div class="logo-scroller" data-speed="fast">
+          <div class="logo-scroller-inner">
+            <img src="https://i.ibb.co/jDNd70X/logo-1.png" alt="Cliente 1" />
+            <img src="https://i.ibb.co/hK4XyQ0/logo-2.png" alt="Cliente 2" />
+            <img src="https://i.ibb.co/gWFQjC3/logo-3.png" alt="Cliente 3" />
+            <img src="https://i.ibb.co/BfL3M3J/logo-4.png" alt="Cliente 4" />
+            <img src="https://i.ibb.co/bWcqs6z/logo-5.png" alt="Cliente 5" />
+            <img src="https://i.ibb.co/jDNd70X/logo-1.png" alt="Cliente 1" />
+            <img src="https://i.ibb.co/hK4XyQ0/logo-2.png" alt="Cliente 2" />
+          </div>
+        </div>
+      </section>
+
+      <section id="servicos" class="container section">
+        <h2 class="section-title">O que nós fazemos?</h2>
+        <p class="section-description">
+          Soluções completas para sua presença digital.
+        </p>
+
+        <div class="grid-container-servicos">
+          <div class="service-card">
+            <i class="bx bx-rocket card-icon"></i>
+            <h3>Sites Profissionais com IA</h3>
+            <p>
+              Criação de sites completos com design personalizado, SEO otimizado
+              e textos gerados por IA + Domínio grátis.
+            </p>
+          </div>
+          <div class="service-card">
+            <i class="bx bx-target-lock card-icon"></i>
+            <h3>Landing Pages de Alta Conversão</h3>
+            <p>
+              Páginas únicas para campanhas, lançamento de produtos e captação
+              de clientes. Focadas 100% em resultado.
+            </p>
+          </div>
+          <div class="service-card">
+            <i class="bx bx-store card-icon"></i>
+            <h3>Lojas Virtuais (E-commerce)</h3>
+            <p>
+              Sua loja online completa, com cadastro de produtos, integração de
+              pagamento (Pix, Cartão) e pronta para vender.
+            </p>
+          </div>
+          <div class="service-card">
+            <i class="bx bx-paint card-icon"></i>
+            <h3>Recriação e Otimização</h3>
+            <p>
+              Melhoria e reconstrução de sites antigos com tecnologia moderna e
+              performance otimizada para 2025.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="cursos" class="section section-cursos">
+        <div class="container">
+          <h2 class="section-title">Aprenda e Lucre Conosco</h2>
+          <p class="section-description">Cursos em destaque para afiliados.</p>
+
+          <div class="swiper cursos-carousel">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="curso-card">
+                  <img src="https://i.ibb.co/M5JqM0K/curso-1.jpg" alt="Curso 1" />
+                  <div class="curso-card-content">
+                    <h3>Marketing Digital</h3>
+                    <p>
+                      Aprenda a vender todos os dias com estratégias comprovadas.
+                    </p>
+                    <a href="#" target="_blank" class="btn btn-curso"
+                      >Ver Curso</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="curso-card">
+                  <img src="https://i.ibb.co/yY13sP9/curso-2.jpg" alt="Curso 2" />
+                  <div class="curso-card-content">
+                    <h3>Design com Canva Pro</h3>
+                    <p>
+                      Crie artes incríveis e profissionais usando apenas o Canva.
+                    </p>
+                    <a href="#" target="_blank" class="btn btn-curso"
+                      >Acessar</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="curso-card">
+                  <img src="https://i.ibb.co/GvxYmGk/curso-3.jpg" alt="Curso 3" />
+                  <div class="curso-card-content">
+                    <h3>Tráfego Pago Avançado</h3>
+                    <p>
+                      Domine anúncios no Meta e Google e escale seus resultados.
+                    </p>
+                    <a href="#" target="_blank" class="btn btn-curso"
+                      >Começar</a
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="curso-card">
+                  <img src="https://i.ibb.co/M5JqM0K/curso-1.jpg" alt="Curso 4" />
+                  <div class="curso-card-content">
+                    <h3>Copywriting com IA</h3>
+                    <p>Aprenda a criar textos que vendem usando o ChatGPT.</p>
+                    <a href="#" target="_blank" class="btn btn-curso"
+                      >Ver Curso</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        </div>
+      </section>
+
+      <section id="faq" class="section container">
+        <h2 class="section-title">Perguntas Frequentes (FAQ)</h2>
+        <p class="section-description">
+          Ainda não tem certeza? Veja as perguntas mais comuns.
+        </p>
+
+        <div class="faq-container">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Como funciona a criação de um site?</span>
+              <i class="bx bx-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Você escolhe o tipo de site (no-code ou código), envia suas
+                preferências e nossa IA cria o design. Depois, nossa equipe
+                humana faz os ajustes finais com você!
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Quanto tempo leva para o site ficar pronto?</span>
+              <i class="bx bx-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Sites "no-code" (feitos em plataformas) ficam prontos em até 72
+                horas. Sites codificados (mais complexos) levam de 7 a 15 dias.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Posso pagar parcelado?</span>
+              <i class="bx bx-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Sim! Aceitamos pagamentos via Pix (50% de entrada) ou Cartão de
+                Crédito em até 12x (com taxas da operadora).
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Vocês oferecem suporte após a entrega?</span>
+              <i class="bx bx-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Sim, oferecemos 30 dias de suporte técnico gratuito após a
+                entrega para qualquer bug ou ajuste. Também temos planos de
+                manutenção mensal, caso deseje.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contato" class="section container">
+        <h2 class="section-title">Vamos começar seu projeto?</h2>
+        <p class="section-description">
+          Preencha o formulário e nossa equipe entrará em contato em 24 horas.
+        </p>
+
+        <form
+          action="https://formsubmit.co/iawebfactory.site@gmail.com"
+          method="POST"
+          class="contact-form"
+        >
+          <div class="form-row">
+            <div class="form-group">
+              <input
+                type="text"
+                name="name"
+                id="name"
+                class="form-input"
+                placeholder=" "
+                required
+              />
+              <label for="name" class="form-label">Nome completo</label>
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="form-input"
+                placeholder=" "
+                required
+              />
+              <label for="email" class="form-label">Seu melhor e-mail</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="tel"
+              name="phone"
+              id="phone"
+              class="form-input"
+              placeholder=" "
+              required
+            />
+            <label for="phone" class="form-label">WhatsApp (com DDD)</label>
+          </div>
+          <div class="form-group">
+            <textarea
+              name="message"
+              id="message"
+              class="form-input"
+              placeholder=" "
+              rows="4"
+              required
+            ></textarea>
+            <label for="message" class="form-label"
+              >Fale um pouco sobre sua ideia...</label
+            >
+          </div>
+
+          <input
+            type="hidden"
+            name="_next"
+            value="https://SEU_SITE.com/obrigado.html"
+          />
+          <input type="hidden" name="_captcha" value="false" />
+          <input
+            type="hidden"
+            name="_autoresponse"
+            value="Recebemos sua mensagem! Em breve, um especialista da IA Web Factory entrará em contato."
+          />
+
+          <button type="submit" class="btn btn-primary">
+            Enviar Mensagem
+          </button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div class="footer-column">
+          <a href="#" class="logo-container">
+            <div class="logo">WF</div>
+            <div class="logo-text">IA Web Factory</div>
+          </a>
+          <p class="footer-slogan">Sites Inteligentes, Resultados Reais.</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"
+              ><i class="bx bxl-instagram"></i
+            ></a>
+            <a href="#" aria-label="Facebook"
+              ><i class="bx bxl-facebook-square"></i
+            ></a>
+            <a href="#" aria-label="LinkedIn"
+              ><i class="bx bxl-linkedin-square"></i
+            ></a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h3>Navegação</h3>
+          <ul class="footer-links">
+            <li><a href="#servicos">Serviços</a></li>
+            <li><a href="#cursos">Cursos</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Legal</h3>
+          <ul class="footer-links">
+            <li><a href="#">Termos de Serviço</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Contato</h3>
+          <ul class="footer-links">
+            <li>iawebfactory.site@gmail.com</li>
+            <li>+55 (99) 91234-5678</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">
+        <p>
+          © <span id="currentYear"></span> IA WEB FACTORY. Todos os direitos
+          reservados.
+        </p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
