@@ -152,7 +152,12 @@
         z-index: 0;
         pointer-events: none;
       }
+        .glow-effect {
+  pointer-events: none; /* não atrapalha cliques */
+  z-index: 0; /* fica atrás do texto e da imagem */
+}
 
+        
       /* Animação do Carrossel de Logos */
       .logo-scroller {
         @apply max-w-full overflow-hidden;
