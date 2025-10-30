@@ -194,42 +194,84 @@
       .form-input:focus {
         @apply border-roxo-principal;
       }
-       .faq-container {
-  background-color: transparent !important; /* remove o fundo cinza */
+       /* ===== FAQ SECTION ===== */
+.faq-section {
+    padding: 80px 20px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    text-align: center;
+    transition: background 0.3s ease, color 0.3s ease;
 }
-.faq-item {
-  background-color: transparent !important;
-} 
-        /* --- AJUSTE DO FAQ --- */
+
+.faq-section h2 {
+    font-size: 2rem;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+}
+
 .faq-container {
-  background-color: transparent !important; /* remove o fundo cinza */
-  backdrop-filter: none !important;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
 }
 
 .faq-item {
-  background-color: transparent !important; /* cada pergunta sem fundo */
+    background: var(--card-bg);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .faq-item {
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.faq-item:hover {
+    border-color: var(--primary-color);
 }
 
 .faq-question {
-  @apply flex justify-between items-center w-full py-5 text-left transition-colors duration-300;
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 500;
 }
 
-.faq-question:hover {
-  @apply text-roxo-principal; /* muda a cor da pergunta ao passar o mouse */
+.faq-question i {
+    transition: transform 0.3s ease;
 }
 
 .faq-answer {
-  @apply text-texto-cinza leading-relaxed mt-2;
+    max-height: 0;
+    overflow: hidden;
+    background: var(--bg-color);
+    padding: 0 20px;
+    transition: all 0.4s ease;
+    color: var(--text-color);
 }
 
-/* Ícone com animação de rotação */
-.faq-question i {
-  @apply transition-transform duration-300 text-roxo-principal;
+body.dark-mode .faq-answer {
+    background: #1d222b; /* leve destaque no escuro */
+    color: #ccc;
 }
 
-.rotate-180 {
-  transform: rotate(180deg);
+.faq-item.active .faq-answer {
+    max-height: 300px;
+    padding: 15px 20px 25px;
 }
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+    }
     </style>
 </head>
 
@@ -439,67 +481,65 @@
 
 
       
-      <section id="faq" class="section container mx-auto px-6 py-20 md:py-28" x-data="{ activeIndex: null }">
-        <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-4">
-          Perguntas Frequentes (FAQ)
-        </h2>
-        <p class="section-description text-lg text-texto-cinza text-center max-w-2xl mx-auto mb-12">
-          Ainda não tem certeza? Veja as perguntas mais comuns.
-        </p>
+      <!--Seçao faq / perguntas frequentes-->          
+             <section class="faq-section fade-in" id="faq">
+    <h2>Perguntas Frequentes (FAQ)</h2>
 
-        <div class="faq-container max-w-3xl mx-auto border-t border-borda-divisao">
-          <div class="faq-item border-b border-borda-divisao">
-            <button @click="activeIndex = (activeIndex === 1) ? null : 1" class="faq-question w-full flex justify-between items-center text-left py-6">
-              <span class="text-lg font-semibold text-texto-claro">Como funciona a criação de um site?</span>
-              <i class="bx bx-chevron-down text-2xl text-roxo-principal transition-transform duration-300" :class="{'rotate-180': activeIndex === 1}"></i>
+    <div class="faq-container">
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>💡 Como funciona a criação de um site pela AI Web Factory?</span>
+                <i class="fas fa-chevron-down"></i>
             </button>
-            <div x-show="activeIndex === 1" x-collapse x-cloak class="faq-answer pb-6">
-              <p class="text-texto-cinza leading-relaxed">
-                Você escolhe o tipo de site (no-code ou código), envia suas preferências e
-                nossa IA cria o design. Depois, nossa equipe humana faz os
-                ajustes finais com você!
-              </p>
+            <div class="faq-answer">
+                <p>Você escolhe o tipo de site, envia suas preferências e nossa IA cria o design personalizado automaticamente. Depois, fazemos os ajustes finais juntos!</p>
             </div>
-          </div>
-          <div class="faq-item border-b border-borda-divisao">
-            <button @click="activeIndex = (activeIndex === 2) ? null : 2" class="faq-question w-full flex justify-between items-center text-left py-6">
-              <span class="text-lg font-semibold text-texto-claro">Quanto tempo leva para o site ficar pronto?</span>
-              <i class="bx bx-chevron-down text-2xl text-roxo-principal transition-transform duration-300" :class="{'rotate-180': activeIndex === 2}"></i>
-            </button>
-            <div x-show="activeIndex === 2" x-collapse x-cloak class="faq-answer pb-6">
-              <p class="text-texto-cinza leading-relaxed">
-                Sites "no-code" (feitos em plataformas) ficam prontos em até 72 horas. Sites codificados
-                (mais complexos) levam de 7 a 15 dias.
-              </p>
-            </div>
-          </div>
-          <div class="faq-item border-b border-borda-divisao">
-            <button @click="activeIndex = (activeIndex === 3) ? null : 3" class="faq-question w-full flex justify-between items-center text-left py-6">
-              <span class="text-lg font-semibold text-texto-claro">Posso pagar parcelado?</span>
-              <i class="bx bx-chevron-down text-2xl text-roxo-principal transition-transform duration-300" :class="{'rotate-180': activeIndex === 3}"></i>
-            </button>
-            <div x-show="activeIndex === 3" x-collapse x-cloak class="faq-answer pb-6">
-              <p class="text-texto-cinza leading-relaxed">
-                Sim! Aceitamos pagamentos via Pix (50% de entrada) ou Cartão de
-                Crédito em até 12x (com taxas da operadora).
-              </p>
-            </div>
-          </div>
-          <div class="faq-item border-b border-borda-divisao">
-            <button @click="activeIndex = (activeIndex === 4) ? null : 4" class="faq-question w-full flex justify-between items-center text-left py-6">
-              <span class="text-lg font-semibold text-texto-claro">Vocês oferecem suporte após a entrega?</span>
-              <i class="bx bx-chevron-down text-2xl text-roxo-principal transition-transform duration-300" :class="{'rotate-180': activeIndex === 4}"></i>
-            </button>
-            <div x-show="activeIndex === 4" x-collapse x-cloak class="faq-answer pb-6">
-              <p class="text-texto-cinza leading-relaxed">
-                Sim, oferecemos 30 dias de suporte técnico gratuito após a
-                entrega para qualquer bug ou ajuste. Também temos planos de
-                manutenção mensal, caso deseje.
-              </p>
-            </div>
-          </div>
         </div>
-      </section>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>⏱️ Quanto tempo leva para o site ficar pronto?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Em média, entre 24 e 48 horas após o envio das informações necessárias, dependendo da complexidade do projeto.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>💰 Posso pagar parcelado?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Sim! Aceitamos pagamentos via Pix, cartão de crédito, boleto e outras formas. Parcelamentos podem ser combinados diretamente pelo WhatsApp.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>🔒 Vocês oferecem suporte após a entrega?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Sim, oferecemos suporte técnico gratuito durante o contrato após a entrega e planos adicionais de manutenção mensal, caso deseje.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span>🧠 É possível integrar IA no meu site?</span>
+                <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+                <p>Claro! Podemos adicionar chatbots inteligentes, assistentes automáticos e até sistemas com ideias integradas, sob demanda.</p>
+            </div>
+        </div>
+
+    </div>
+             </section>
+        <!--fim faq-->
 
       <section id="contato" class="section container mx-auto px-6">
         <h2 class="section-title text-3xl md:text-4xl font-bold text-center mb-4">
